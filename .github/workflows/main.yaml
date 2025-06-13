@@ -20,6 +20,6 @@ jobs:
         SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
         SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         SURGE_PROJECT: './'
-        SURGE_DOMAIN: 'mi-pagina-web.surge.sh'
+        SURGE_DOMAIN: 'mi-pagina-webwillian.surge.sh'
       run: surge --project $SURGE_PROJECT --domain $SURGE_DOMAIN --token $SURGE_TOKEN
 
