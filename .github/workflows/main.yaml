@@ -1,0 +1,25 @@
+name: Deploy to Surge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Surge
+      run: npm install --global surge
+
+    - name: Deploy to Surge
+      env:
+        SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+        SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        SURGE_PROJECT: './'
+        SURGE_DOMAIN: 'mi-pagina-web.surge.sh'
+      run: surge --project $SURGE_PROJECT --domain $SURGE_DOMAIN --token $SURGE_TOKEN
+
